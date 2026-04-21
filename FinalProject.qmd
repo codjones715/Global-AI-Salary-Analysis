@@ -1,5 +1,169 @@
 ---
-title: "Final Project - Cody Jones"
+title: "Global AI & Data Jobs Salary Analysis"
+author: "Cody Jones"
 format: html
 ---
 
+
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv("global_ai_jobs.csv")
+
+df.head()
+```
+## Introduction
+
+This project analyzes global AI and data job salaries from 2020–2026. The goal is to identify key factors that influence compensation and build predictive models.
+
+## Research Questions
+
+- What factors most influence salary?
+- Do remote jobs pay more than onsite jobs?
+- How do salaries vary by role, country, and experience?
+
+## Why This Matters
+
+Understanding salary trends in AI and data jobs can help professionals make informed career decisions and guide employers in competitive compensation strategies. With the rapid growth of AI, insights from this analysis can also inform education and training programs to better prepare the workforce for future demands.
+
+## Data Overview
+
+This data set includes variables like job role, country, experience level, salary in USD, skills, and work setup (remote vs onsite). The data was collected from various job postings and salary surveys across different countries and industries.
+The dataset includes:
+- Job role
+- Country
+- Experience level
+- Salary (USD)
+- Skills
+- Work setup
+
+## Data Cleaning
+
+Before conducting analysis, the dataset was cleaned to ensure consistency, accuracy, and usability for statistical modeling.
+
+# Handling Missing Values
+
+The dataset was first examined for missing values across all variables. Columns with minimal missing values were handled by removing incomplete rows, while ensuring that a substantial portion of the data remained intact. No columns with excessive missingness were retained, preserving the integrity of the dataset.
+```{python}
+import pandas as pd
+
+# Load data
+df = pd.read_csv("global_ai_jobs.csv")
+
+# Standardize column names
+df.columns = df.columns.str.lower().str.replace(" ", "_")
+
+# Check missing values
+missing_values = df.isnull().sum()
+missing_values
+```
+
+# Standardizing Column Names
+
+To improve usability in Python, all column names were converted to lowercase and formatted using underscores instead of spaces. This ensures consistency and avoids errors when referencing variables in code.
+
+# Data Type Corrections
+
+Several variables were checked and converted into appropriate data types:
+- Salary was confirmed as a numeric variable
+- Categorical variables such as job role, country, experience level, and work setup were properly formatted
+- Any inconsistencies in formatting were corrected
+```{python}
+# Convert salary to numeric if needed
+df['salary_usd'] = pd.to_numeric(df['salary_usd'], errors='coerce')
+
+# Drop rows with missing salary (critical variable)
+df = df.dropna(subset=['salary_usd'])
+```
+
+# Removing Duplicates
+
+Duplicate records were identified and removed to prevent bias in analysis and modeling. This ensured that each job entry represented a unique observation.
+```{python}
+df = df.drop_duplicates()
+df.shape
+```
+
+# Feature Preparation
+
+Categorical variables were prepared for analysis:
+- Key categorical fields (e.g., job role, work setup, company size) were standardized
+- These variables were later encoded for use in regression and machine learning models
+
+# Outlier Consideration
+
+Salary values were inspected for extreme outliers. While some high salaries were retained as they reflect real-world executive or specialized roles, clearly erroneous values (if any) were removed.
+
+# Summary of Cleaning
+
+After cleaning:
+- The dataset remained comprehensive and suitable for analysis
+- Key variables were consistent and properly formatted
+- The data was ready for exploratory analysis and modeling
+
+This cleaning process ensures that subsequent insights and models are based on reliable and well-structured data.
+```{python}
+import pandas as pd
+
+# Load data
+df = pd.read_csv("global_ai_jobs.csv")
+
+# Standardize column names
+df.columns = df.columns.str.lower().str.replace(" ", "_")
+
+# Check missing values
+missing_values = df.isnull().sum()
+missing_values
+```
+
+```{python}
+# Convert salary to numeric if needed
+df['salary_usd'] = pd.to_numeric(df['salary_usd'], errors='coerce')
+
+# Drop rows with missing salary (critical variable)
+df = df.dropna(subset=['salary_usd'])
+```
+```{python}
+# Convert salary to numeric if needed
+df['salary_usd'] = pd.to_numeric(df['salary_usd'], errors='coerce')
+
+# Drop rows with missing salary (critical variable)
+df = df.dropna(subset=['salary_usd'])
+```
+```{python}
+```
+
+
+## Exploratory Data Analysis
+
+## Statistical Testing
+
+## Modeling and Results
+
+## Key Insights
+
+## Recommendations
+
+## Limitations
+
+## Future Work
+
+
+
+- Data cleaning
+- Exploratory data analysis
+- Modeling
+
+Title + Topic
+Motivation (Why this matters)
+Dataset overview
+Key questions
+Data cleaning
+6–9. EDA visuals
+Statistical testing
+11–13. Model + results
+Key insights
+Recommendations
+Limitations
+Future work
