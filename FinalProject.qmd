@@ -2,11 +2,30 @@
 title: "Global AI & Data Jobs Salary Analysis"
 author: "Cody Jones"
 format: html
++  revealjs:
++    theme: default
++    slide-number: true
++    transition: slide
 ---
+
+Table of contents
+- Introduction
+- Research Questions
+- Why This Matters
+- Data Overview
+- Data Cleaning
+- Exploratory Data Analysis
+- Statistical Testing
+- Modeling and Results
+- Key Insights
+- Recommendations
+- Limitations
+- Future Work
+- Questions?
 
 # Introduction
 
-This project analyzes global AI and data job salaries from 2020–2026. The goal is to identify key factors that influence compensation and build predictive models.
+This project analyzes global AI and data job salaries from 2020–2026. The goal is to identify key factors that influence compensation and build predictive models. The data set was found using Kaggle and includes 90,000 observations across 35 variables, covering job roles, experience levels, locations, and work setups. The analysis will provide insights into salary trends and inform career strategies for professionals in the AI and data fields.
 
 # Research Questions
 
@@ -20,14 +39,8 @@ Understanding salary trends in AI and data jobs can help professionals make info
 
 # Data Overview
 
-This data set includes variables like job role, country, experience level, salary in USD, skills, and work setup (remote vs onsite). The data was collected from various job postings and salary surveys across different countries and industries.
-The dataset includes:
-- Job role
-- Country
-- Experience level
-- Salary (USD)
-- Skills
-- Work setup
+This data set includes variables like job role, country, experience level, salary in USD, and work setup (remote vs onsite). The data was collected from various job postings and salary surveys across different countries and industries. The main variables I want to focus on are salary, experience level, job role, and work setup, as these are likely to have the most significant impact on compensation.
+
 ```{python}
 import pandas as pd
 
@@ -50,10 +63,8 @@ import pandas as pd
 
 df = pd.read_csv("global_ai_jobs.csv")
 
-# Standardize column names
 df.columns = df.columns.str.lower().str.replace(" ", "_")
 
-# Check missing values
 missing_values = df.isnull().sum()
 missing_values
 ```
@@ -81,8 +92,6 @@ df = df.drop_duplicates()
 df.shape
 ```
 
-## Summary of Cleaning
-
 After cleaning:
 - The dataset remained comprehensive and suitable for analysis
 - Key variables were consistent and properly formatted
@@ -91,7 +100,7 @@ After cleaning:
 
 # Exploratory Data Analysis
 
-This section explores patterns in salaries across roles, experience levels, locations, and work setups to better understand the structure of the dataset.
+This section explores patterns in salaries across roles, experience levels, company sizes, and work setups to better understand the structure of the dataset and the behavior of the "salary" variable.
 
 ## Salary Distribution
 
@@ -117,6 +126,7 @@ plt.show()
 ```
 - There are clear differences in compensation across roles
 - Machine learning and research scientists tend to command higher salaries compared to general analytics positions, reflecting higher demand and specialized skill requirements.
+
 ## Remote vs Onsite Salaries
 ```{python}
 df.groupby('work_mode')['salary_usd'].mean().plot(kind='bar')
@@ -136,7 +146,8 @@ plt.xlabel("Company Size")
 plt.ylabel("Average Salary (USD)")
 plt.show()
 ```
-Larger companies tend to offer higher salaries on average, likely due to greater financial resources and demand for experienced professionals.
+- Larger companies tend to offer similar salaries on average
+- Indicates that organizational scale may not be a major factor in determining compensation
 
 # Hypothesis Testing
 
@@ -155,7 +166,9 @@ f_stat, p_value
 The ANOVA test examining salary differences across experience levels produced an F-statistic of 28,488.50 and a p-value effectively equal to zero (p < 0.001). This result provides extremely strong evidence against the null hypothesis.
 
 Therefore, we conclude that mean salaries differ significantly across experience levels. This finding confirms that experience is a major determinant of compensation in AI and data-related roles.
+
 ## Remote vs Onsite Salary Comparison (Two-Sample t-test)
+
 - H₀: There is no difference in mean salary between remote and onsite jobs  
 - H₁: There is a significant difference in mean salary between remote and onsite jobs  
 
@@ -273,11 +286,11 @@ The analysis of global AI and data job salaries reveals several important patter
 
 Across all analyses, experience level consistently emerged as the most significant factor influencing salary. Both the exploratory analysis and modeling results show that salaries increase substantially with experience, with senior and executive roles commanding significantly higher compensation. This highlights the importance of career progression in maximizing earnings within the AI and data fields.
 
-## Work Setup Has a Measurable but Limited Impact
+## Work Setup Has a Limited Impact
 
 Differences between remote, hybrid, and onsite roles were observed, though their impact on salary is smaller compared to experience and job role. While remote work may offer flexibility, it does not appear to be the primary driver of compensation differences.
 
-## Company Characteristics Influence Pay
+## Company Characteristics Don't Influence Pay
 
 Larger companies generally did not offer higher salaries. This suggests that organizational scale does not play a major role in compensation structures within the industry.
 
@@ -289,7 +302,7 @@ The superior performance of the random forest model compared to linear regressio
 
 ## Overall Insight
 
-Salary in AI and data-related roles is driven by a combination of human capital (experience and skills) and  job specialization. While no single factor determines compensation, experience level and role specialization consistently emerge as the most influential drivers.
+Salary in AI and data-related roles is driven by a combination of experience, skills, and  job specialization. While no single factor determines compensation, experience level and role specialization consistently emerge as the most influential drivers.
 
 
 
@@ -301,19 +314,13 @@ Salary in AI and data-related roles is driven by a combination of human capital 
   - Focus on high-demand technical areas to increase earning potential
 
 - Career strategy:
-  - Prioritize role specialization and growth opportunities over location
+  - Prioritize role specialization and growth opportunities over other variables
   - Remote work offers flexibility but does not significantly impact salary
-  - Choose positions that support skill development and advancement
 
 - For employers:
   - Offer competitive salaries for experienced and specialized roles
   - Align compensation with market demand for high-skill talent
   - Recognize the value of retaining top technical employees
-
-- Workforce planning:
-  - Invest in employee training and career development
-  - Build internal talent pipelines
-  - Support progression to improve retention and reduce hiring costs
 
 # Limitations
 - The dataset may not fully represent all global AI and data jobs, leading to potential sampling bias  
@@ -330,3 +337,7 @@ Salary in AI and data-related roles is driven by a combination of human capital 
 - Expand the dataset to include more recent data and broader industry coverage  
 
 # Thank you, questions?
+
+# Sources
+Thalla, Mohan Krishna. "Global AI & Data Jobs Salary Dataset." Kaggle, 2026, https://www.kaggle.com/datasets/mohankrishnathalla/global-ai-and-data-jobs-salary-dataset.
+Galarita, Brandon. "Data Science Salary: How Much Can You Make With a Data Science Degree?" Forbes Advisor, 2024, https://www.forbes.com/advisor/education/it-and-tech/data-science-salary/.
