@@ -4,15 +4,6 @@ author: "Cody Jones"
 format: html
 ---
 
-
-
-```{python}
-import pandas as pd
-
-df = pd.read_csv("global_ai_jobs.csv")
-
-df.head()
-```
 # Introduction
 
 This project analyzes global AI and data job salaries from 2020–2026. The goal is to identify key factors that influence compensation and build predictive models.
@@ -37,6 +28,13 @@ The dataset includes:
 - Salary (USD)
 - Skills
 - Work setup
+```{python}
+import pandas as pd
+
+df = pd.read_csv("global_ai_jobs.csv")
+
+df.head()
+```
 
 # Data Cleaning
 
@@ -44,11 +42,12 @@ Before conducting analysis, the dataset was cleaned to ensure consistency, accur
 
 ## Handling Missing Values
 
-The dataset was first examined for missing values across all variables. Columns with minimal missing values were handled by removing incomplete rows, while ensuring that a substantial portion of the data remained intact. No columns with excessive missingness were retained, preserving the integrity of the dataset.
+- First examined for missing values across all variables 
+- Columns with minimal missing values were handled by removing incomplete rows, while ensuring that a substantial portion of the data remained intact
+- No columns with excessive missingness were retained, preserving the integrity of the dataset.
 ```{python}
 import pandas as pd
 
-# Load data
 df = pd.read_csv("global_ai_jobs.csv")
 
 # Standardize column names
@@ -59,10 +58,6 @@ missing_values = df.isnull().sum()
 missing_values
 ```
 
-## Standardizing Column Names
-
-To improve usability in Python, all column names were converted to lowercase and formatted using underscores instead of spaces. This ensures consistency and avoids errors when referencing variables in code.
-
 ## Data Type Corrections
 
 Several variables were checked and converted into appropriate data types:
@@ -70,7 +65,6 @@ Several variables were checked and converted into appropriate data types:
 - Categorical variables such as job role, country, experience level, and work setup were properly formatted
 - Any inconsistencies in formatting were corrected
 ```{python}
-# Convert salary to numeric if needed
 df['salary_usd'] = pd.to_numeric(df['salary_usd'], errors='coerce')
 
 # Drop rows with missing salary (critical variable)
@@ -79,21 +73,13 @@ df = df.dropna(subset=['salary_usd'])
 
 ## Removing Duplicates
 
-Duplicate records were identified and removed to prevent bias in analysis and modeling. This ensured that each job entry represented a unique observation.
+- Duplicate records were identified and removed to prevent bias in analysis and modeling
+- This ensured that each job entry represented a unique observation
+- Output shows 90,000 recorded observations after cleaning across 35 variables
 ```{python}
 df = df.drop_duplicates()
 df.shape
 ```
-
-## Feature Preparation
-
-Categorical variables were prepared for analysis:
-- Key categorical fields (e.g., job role, work setup, company size) were standardized
-- These variables were later encoded for use in regression and machine learning models
-
-## Outlier Consideration
-
-Salary values were inspected for extreme outliers. While some high salaries were retained as they reflect real-world executive or specialized roles, clearly erroneous values (if any) were removed.
 
 ## Summary of Cleaning
 
@@ -101,12 +87,7 @@ After cleaning:
 - The dataset remained comprehensive and suitable for analysis
 - Key variables were consistent and properly formatted
 - The data was ready for exploratory analysis and modeling
-
-This cleaning process ensures that subsequent insights and models are based on reliable and well-structured data.
-
-```{python}
-```
-
+- Bases our insights off of reliable and well-constructed data
 
 # Exploratory Data Analysis
 
@@ -123,7 +104,8 @@ plt.xlabel("Salary (USD)")
 plt.ylabel("Frequency")
 plt.show()
 ```
-The salary distribution is right-skewed, indicating that while most jobs fall within a moderate salary range, a smaller number of roles offer significantly higher compensation. These high-paying roles likely reflect senior or specialized positions.
+- The salary distribution is right-skewed, indicating that while most jobs fall within a moderate salary range, a smaller number of roles offer significantly higher compensation
+- These high-paying roles likely reflect senior or specialized positions.
 
 ## Salary by Job Role
 ```{python}
@@ -133,7 +115,8 @@ plt.xlabel("Average Salary (USD)")
 plt.ylabel("Job Role")
 plt.show()
 ```
-There are clear differences in compensation across roles. Machine learning and AI-focused roles tend to command higher salaries compared to general analytics positions, reflecting higher demand and specialized skill requirements.
+- There are clear differences in compensation across roles
+- Machine learning and research scientists tend to command higher salaries compared to general analytics positions, reflecting higher demand and specialized skill requirements.
 ## Remote vs Onsite Salaries
 ```{python}
 df.groupby('work_mode')['salary_usd'].mean().plot(kind='bar')
@@ -142,7 +125,8 @@ plt.xlabel("Work Setup")
 plt.ylabel("Average Salary (USD)")
 plt.show()
 ```
-Remote, hybrid, and onsite roles show differences in average compensation. This suggests that workplace flexibility may be associated with salary, though further statistical testing is needed to confirm significance.
+- Remote, hybrid, and onsite roles show minimal differences in average compensation
+- This suggests that workplace flexibility may not be associated with salary, though further statistical testing is needed to confirm significance.
 
 ## Salary by Company Size
 ```{python}
@@ -154,36 +138,61 @@ plt.show()
 ```
 Larger companies tend to offer higher salaries on average, likely due to greater financial resources and demand for experienced professionals.
 
-## Heat Map 
-```{python}
-import seaborn as sns
+# Hypothesis Testing
 
-sns.heatmap(df.corr(numeric_only=True), annot=True)
-plt.title("Correlation Matrix")
-plt.show()
+## ANOVA Test for Salary Differences by Experience Level
+H₀: All experience levels have the same mean salary
+H₁: At least one experience level has a different mean salary
+```{python}
+from scipy.stats import f_oneway
+
+groups = [group['salary_usd'].values for name, group in df.groupby('experience_level')]
+
+f_stat, p_value = f_oneway(*groups)
+
+f_stat, p_value
 ```
+The ANOVA test examining salary differences across experience levels produced an F-statistic of 28,488.50 and a p-value effectively equal to zero (p < 0.001). This result provides extremely strong evidence against the null hypothesis.
+
+Therefore, we conclude that mean salaries differ significantly across experience levels. This finding confirms that experience is a major determinant of compensation in AI and data-related roles.
+## Remote vs Onsite Salary Comparison (Two-Sample t-test)
+- H₀: There is no difference in mean salary between remote and onsite jobs  
+- H₁: There is a significant difference in mean salary between remote and onsite jobs  
+
+```{python}
+from scipy.stats import ttest_ind
+
+remote = df[df['work_mode'] == 'Remote']['salary_usd']
+onsite = df[df['work_mode'] == 'Onsite']['salary_usd']
+
+t_stat, p_value = ttest_ind(remote, onsite, nan_policy='omit')
+
+t_stat, p_value
+```
+The two-sample t-test comparing salaries between remote and onsite roles produced a t-statistic of -0.023 and a p-value of 0.982. Since the p-value is substantially greater than 0.05, we fail to reject the null hypothesis.
+
+This indicates that there is no statistically significant difference in average salaries between remote and onsite positions. In other words, any observed difference in salaries is likely due to random variation rather than a true underlying effect.
+
 # Statistical Testing
 
 ## Modeling and Results
 
 To understand the drivers of salary and build predictive insight, two models were developed: a linear regression model and a random forest model.
 
----
 
 ## Data Preparation for Modeling
 
 Before modeling, categorical variables were encoded and the dataset was split into training and testing sets.
-
+ - The target variable is salary in USD
+ - Features include experience level, job role, country, company size, and work mode
 ```{python}
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
-# Define target variable
 y = df['salary_usd']
 
-# Select features (adjust names if needed)
 X = df[['experience_level', 'job_role', 'country', 'company_size', 'work_mode']]
 
 # Identify categorical columns
@@ -196,7 +205,6 @@ preprocessor = ColumnTransformer(
     remainder='passthrough'
 )
 
-# Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
 ## Linear Regression Model
@@ -223,6 +231,7 @@ rmse_lr = np.sqrt(mean_squared_error(y_test, y_pred_lr))
 r2_lr = r2_score(y_test, y_pred_lr)
 
 rmse_lr, r2_lr
+
 ```
 
 ## Random Forest Model
@@ -248,11 +257,11 @@ rmse_rf, r2_rf
 ```
 ## Model Performance and Interpretation
 
-The linear regression model achieved an R² of 0.846, indicating that approximately 84.6% of the variation in salaries is explained by the model. This suggests a strong relationship between the selected features (such as experience level, job role, and location) and salary. The model’s RMSE of 17,202 indicates that predictions deviate from actual salaries by about $17,200 on average.
+The linear regression model achieved an R² of 0.846, indicating that approximately 84.6% of the variation in salaries is explained by the model. This suggests a strong relationship between the selected features  and salary. The model’s RMSE of 17,202 indicates that predictions deviate from actual salaries by about $17,200 on average.
 
 The random forest model further improved predictive performance, achieving an R² of 0.881. This means that 88.1% of the variation in salary is explained, reflecting a better overall fit. Additionally, the RMSE decreased to approximately $15,122, indicating more accurate predictions compared to the linear regression model.
 
-The improvement in performance suggests that salary relationships are not purely linear. The random forest model is able to capture nonlinear interactions between variables—such as how experience level and job role jointly influence compensation—leading to better predictive accuracy.
+The improvement in performance suggests that salary relationships are not purely linear. The random forest model is able to capture nonlinear interactions between variables ,such as how experience level and job role jointly influence compensation, leading to better accuracy.
 
 Overall, both models perform well, but the random forest provides superior predictive capability. However, the linear regression model remains valuable for interpretation, as it clearly shows the direction and magnitude of relationships between individual factors and salary.
 
@@ -264,31 +273,13 @@ The analysis of global AI and data job salaries reveals several important patter
 
 Across all analyses, experience level consistently emerged as the most significant factor influencing salary. Both the exploratory analysis and modeling results show that salaries increase substantially with experience, with senior and executive roles commanding significantly higher compensation. This highlights the importance of career progression in maximizing earnings within the AI and data fields.
 
----
-
-## Specialized Roles Command Higher Salaries
-
-Job roles focused on artificial intelligence and machine learning tend to offer higher salaries compared to more general data or analytics positions. This reflects strong market demand for advanced technical expertise and indicates that specialization in high-skill areas leads to greater financial returns.
-
----
-
-## Location Matters, But Is Not the Only Factor
-
-There are clear differences in salary across countries, with certain regions consistently offering higher compensation. However, the modeling results suggest that location alone does not determine salary—its effect is intertwined with other factors such as experience, role, and company size.
-
----
-
 ## Work Setup Has a Measurable but Limited Impact
 
 Differences between remote, hybrid, and onsite roles were observed, though their impact on salary is smaller compared to experience and job role. While remote work may offer flexibility, it does not appear to be the primary driver of compensation differences.
 
----
-
 ## Company Characteristics Influence Pay
 
-Larger companies generally offer higher salaries, likely due to greater resources and the need to attract top talent. This suggests that organizational scale plays a role in compensation structures within the industry.
-
----
+Larger companies generally did not offer higher salaries. This suggests that organizational scale does not play a major role in compensation structures within the industry.
 
 ## Nonlinear Relationships Improve Prediction Accuracy
 
@@ -298,66 +289,44 @@ The superior performance of the random forest model compared to linear regressio
 
 ## Overall Insight
 
-Salary in AI and data-related roles is driven by a combination of human capital (experience and skills), job specialization, and organizational context. While no single factor determines compensation, experience level and role specialization consistently emerge as the most influential drivers.
+Salary in AI and data-related roles is driven by a combination of human capital (experience and skills) and  job specialization. While no single factor determines compensation, experience level and role specialization consistently emerge as the most influential drivers.
+
+
 
 # Recommendations
 
-Based on the findings from this analysis, several practical recommendations can be made for job seekers, professionals, and organizations in the AI and data science labor market.
+- For students and job seekers:
+  - Prioritize gaining hands-on experience (internships, projects)
+  - Develop specialized skills in AI and machine learning
+  - Focus on high-demand technical areas to increase earning potential
 
----
+- Career strategy:
+  - Prioritize role specialization and growth opportunities over location
+  - Remote work offers flexibility but does not significantly impact salary
+  - Choose positions that support skill development and advancement
 
-## For Job Seekers and Students
+- For employers:
+  - Offer competitive salaries for experienced and specialized roles
+  - Align compensation with market demand for high-skill talent
+  - Recognize the value of retaining top technical employees
 
-Individuals entering the AI and data field should prioritize building experience and developing specialized technical skills. Since experience level is the strongest driver of salary, gaining hands-on experience through internships, projects, and real-world applications is critical. Additionally, focusing on high-demand areas such as machine learning and artificial intelligence can significantly increase earning potential.
+- Workforce planning:
+  - Invest in employee training and career development
+  - Build internal talent pipelines
+  - Support progression to improve retention and reduce hiring costs
 
----
-
-## For Early-Career Professionals
-
-Professionals in the early stages of their careers should aim to transition into more specialized roles and continuously upgrade their skill sets. The results suggest that moving from general analytics roles into more technical or AI-focused positions can lead to substantial salary growth. Investing in advanced tools, programming languages, and domain expertise is likely to yield long-term financial benefits.
-
----
-
-## For Career Strategy and Job Selection
-
-When evaluating job opportunities, candidates should consider not only location and work setup but also role specialization and growth potential. While remote work offers flexibility, it does not appear to significantly increase salary on its own. Instead, selecting roles with strong advancement opportunities and skill development potential is more impactful.
-
----
-
-## For Employers and Organizations
-
-Organizations seeking to attract and retain talent should recognize the importance of competitive compensation, particularly for experienced professionals and specialized roles. Larger companies already demonstrate higher salary offerings, but all organizations can benefit from aligning compensation with market demand for high-skill positions.
-
----
-
-## For Workforce Planning
-
-Companies should invest in developing internal talent pipelines by providing training and advancement opportunities. Since experience plays a major role in salary growth, organizations that support employee development may improve retention and reduce hiring costs over time.
-
----
-
-## Overall Recommendation
-
-Success in the AI and data job market is driven primarily by experience and specialization. Individuals should focus on building deep technical expertise and advancing their careers strategically, while organizations should align compensation and development opportunities with these key drivers.
 # Limitations
+- The dataset may not fully represent all global AI and data jobs, leading to potential sampling bias  
+- Salary data is reported in USD and may not account for differences in cost of living across countries  
+- Linear regression assumes linear relationships, which may oversimplify complex salary dynamics  
+- Random forest improves accuracy but reduces interpretability of individual variable effects  
+- External factors such as company performance, industry trends, and negotiation are not captured  
 
 # Future Work
 
+- Incorporate additional variables such as education level, certifications, and years of experience for deeper analysis  
+- Adjust salaries for cost of living to better compare compensation across countries   
+- Conduct longitudinal analysis to better understand salary trends over time  
+- Expand the dataset to include more recent data and broader industry coverage  
 
-
-- Data cleaning
-- Exploratory data analysis
-- Modeling
-
-Title + Topic
-Motivation (Why this matters)
-Dataset overview
-Key questions
-Data cleaning
-6–9. EDA visuals
-Statistical testing
-11–13. Model + results
-Key insights
-Recommendations
-Limitations
-Future work
+# Thank you, questions?
