@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Cody Jones">
+
+<title>Global AI &amp; Data Jobs Salary Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="FinalProject_files/libs/clipboard/clipboard.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="FinalProject_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="FinalProject_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="FinalProject_files/libs/quarto-html/popper.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="FinalProject_files/libs/quarto-html/anchor.min.js"></script>
+<link href="FinalProject_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="FinalProject_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="FinalProject_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="FinalProject_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="FinalProject_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Global AI &amp; Data Jobs Salary Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Cody Jones </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Table of contents - Introduction - Research Questions - Why This Matters - Data Overview - Data Cleaning - Exploratory Data Analysis - Statistical Testing - Modeling and Results - Key Insights - Recommendations - Limitations - Future Work - Questions?</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This project analyzes global AI and data job salaries from 2020–2026. The goal is to identify key factors that influence compensation and build predictive models. The data set was found using Kaggle and includes 90,000 observations across 35 variables, covering job roles, experience levels, locations, and work setups. The analysis will provide insights into salary trends and inform career strategies for professionals in the AI and data fields.</p>
+</section>
+<section id="research-questions" class="level1">
+<h1>Research Questions</h1>
+<ul>
+<li>What factors most influence salary?</li>
+<li>Do remote jobs pay more than onsite jobs?</li>
+<li>How do salaries vary by role, country, and experience?</li>
+</ul>
+</section>
+<section id="why-this-matters" class="level1">
+<h1>Why This Matters</h1>
+<p>Understanding salary trends in AI and data jobs can help professionals make informed career decisions and guide employers in competitive compensation strategies. With the rapid growth of AI, insights from this analysis can also inform education and training programs to better prepare the workforce for future demands.</p>
+</section>
+<section id="data-overview" class="level1">
+<h1>Data Overview</h1>
+<p>This data set includes variables like job role, country, experience level, salary in USD, and work setup (remote vs onsite). The data was collected from various job postings and salary surveys across different countries and industries. The main variables I want to focus on are salary, experience level, job role, and work setup, as these are likely to have the most significant impact on compensation.</p>
+<div id="9c6edbae" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"global_ai_jobs.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">job_role</th>
+<th data-quarto-table-cell-role="th">ai_specialization</th>
+<th data-quarto-table-cell-role="th">experience_level</th>
+<th data-quarto-table-cell-role="th">experience_years</th>
+<th data-quarto-table-cell-role="th">salary_usd</th>
+<th data-quarto-table-cell-role="th">bonus_usd</th>
+<th data-quarto-table-cell-role="th">education_required</th>
+<th data-quarto-table-cell-role="th">industry</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">vacation_days</th>
+<th data-quarto-table-cell-role="th">skill_demand_score</th>
+<th data-quarto-table-cell-role="th">automation_risk</th>
+<th data-quarto-table-cell-role="th">job_security_score</th>
+<th data-quarto-table-cell-role="th">career_growth_score</th>
+<th data-quarto-table-cell-role="th">work_life_balance_score</th>
+<th data-quarto-table-cell-role="th">promotion_speed</th>
+<th data-quarto-table-cell-role="th">salary_percentile</th>
+<th data-quarto-table-cell-role="th">cost_of_living_index</th>
+<th data-quarto-table-cell-role="th">employee_satisfaction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>UAE</td>
+<td>Machine Learning Engineer</td>
+<td>Reinforcement Learning</td>
+<td>Entry</td>
+<td>0</td>
+<td>66465</td>
+<td>5395</td>
+<td>Master</td>
+<td>Automotive</td>
+<td>...</td>
+<td>27</td>
+<td>12</td>
+<td>76</td>
+<td>57</td>
+<td>65</td>
+<td>73</td>
+<td>15</td>
+<td>55</td>
+<td>1.23</td>
+<td>76</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2</td>
+<td>USA</td>
+<td>AI Engineer</td>
+<td>LLM</td>
+<td>Entry</td>
+<td>1</td>
+<td>75507</td>
+<td>11713</td>
+<td>Bootcamp</td>
+<td>Retail</td>
+<td>...</td>
+<td>27</td>
+<td>54</td>
+<td>29</td>
+<td>69</td>
+<td>60</td>
+<td>51</td>
+<td>15</td>
+<td>58</td>
+<td>0.87</td>
+<td>67</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>3</td>
+<td>Brazil</td>
+<td>Research Scientist</td>
+<td>Analytics</td>
+<td>Entry</td>
+<td>0</td>
+<td>41660</td>
+<td>5268</td>
+<td>PhD</td>
+<td>Healthcare</td>
+<td>...</td>
+<td>13</td>
+<td>12</td>
+<td>49</td>
+<td>70</td>
+<td>59</td>
+<td>68</td>
+<td>37</td>
+<td>13</td>
+<td>2.13</td>
+<td>61</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>4</td>
+<td>India</td>
+<td>Software Engineer AI</td>
+<td>Computer Vision</td>
+<td>Senior</td>
+<td>6</td>
+<td>43268</td>
+<td>7975</td>
+<td>Diploma</td>
+<td>Tech</td>
+<td>...</td>
+<td>30</td>
+<td>80</td>
+<td>47</td>
+<td>79</td>
+<td>65</td>
+<td>55</td>
+<td>46</td>
+<td>74</td>
+<td>1.49</td>
+<td>56</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>5</td>
+<td>Germany</td>
+<td>Machine Learning Engineer</td>
+<td>Computer Vision</td>
+<td>Entry</td>
+<td>0</td>
+<td>69119</td>
+<td>4758</td>
+<td>Master</td>
+<td>Retail</td>
+<td>...</td>
+<td>24</td>
+<td>82</td>
+<td>47</td>
+<td>64</td>
+<td>52</td>
+<td>69</td>
+<td>17</td>
+<td>21</td>
+<td>0.87</td>
+<td>72</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 35 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="data-cleaning" class="level1">
+<h1>Data Cleaning</h1>
+<p>Before conducting analysis, the dataset was cleaned to ensure consistency, accuracy, and usability for statistical modeling.</p>
+<section id="handling-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-values">Handling Missing Values</h2>
+<ul>
+<li>First examined for missing values across all variables</li>
+<li>Columns with minimal missing values were handled by removing incomplete rows, while ensuring that a substantial portion of the data remained intact</li>
+<li>No columns with excessive missingness were retained, preserving the integrity of the dataset.</li>
+</ul>
+<div id="395b5eba" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"global_ai_jobs.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">" "</span>, <span class="st">"_"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>missing_values <span class="op">=</span> df.isnull().<span class="bu">sum</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>missing_values</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>id                         0
+country                    0
+job_role                   0
+ai_specialization          0
+experience_level           0
+experience_years           0
+salary_usd                 0
+bonus_usd                  0
+education_required         0
+industry                   0
+company_size               0
+interview_rounds           0
+year                       0
+work_mode                  0
+weekly_hours               0
+company_rating             0
+job_openings               0
+hiring_difficulty_score    0
+layoff_risk                0
+ai_adoption_score          0
+company_funding_billion    0
+economic_index             0
+ai_maturity_years          0
+offer_acceptance_rate      0
+tax_rate_percent           0
+vacation_days              0
+skill_demand_score         0
+automation_risk            0
+job_security_score         0
+career_growth_score        0
+work_life_balance_score    0
+promotion_speed            0
+salary_percentile          0
+cost_of_living_index       0
+employee_satisfaction      0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="data-type-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="data-type-corrections">Data Type Corrections</h2>
+<p>Several variables were checked and converted into appropriate data types: - Salary was confirmed as a numeric variable - Categorical variables such as job role, country, experience level, and work setup were properly formatted - Any inconsistencies in formatting were corrected</p>
+<div id="3a1b8271" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'salary_usd'</span>] <span class="op">=</span> pd.to_numeric(df[<span class="st">'salary_usd'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with missing salary (critical variable)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'salary_usd'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="removing-duplicates" class="level2">
+<h2 class="anchored" data-anchor-id="removing-duplicates">Removing Duplicates</h2>
+<ul>
+<li>Duplicate records were identified and removed to prevent bias in analysis and modeling</li>
+<li>This ensured that each job entry represented a unique observation</li>
+<li>Output shows 90,000 recorded observations after cleaning across 35 variables</li>
+</ul>
+<div id="37451174" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop_duplicates()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>(90000, 35)</code></pre>
+</div>
+</div>
+<p>After cleaning: - The dataset remained comprehensive and suitable for analysis - Key variables were consistent and properly formatted - The data was ready for exploratory analysis and modeling - Bases our insights off of reliable and well-constructed data</p>
+</section>
+</section>
+<section id="exploratory-data-analysis" class="level1">
+<h1>Exploratory Data Analysis</h1>
+<p>This section explores patterns in salaries across roles, experience levels, company sizes, and work setups to better understand the structure of the dataset and the behavior of the “salary” variable.</p>
+<section id="salary-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="salary-distribution">Salary Distribution</h2>
+<div id="c4963c2b" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'salary_usd'</span>].hist(bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Salaries"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Salary (USD)"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="FinalProject_files/figure-html/cell-6-output-1.png" width="602" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>The salary distribution is right-skewed, indicating that while most jobs fall within a moderate salary range, a smaller number of roles offer significantly higher compensation</li>
+<li>These high-paying roles likely reflect senior or specialized positions.</li>
+</ul>
+</section>
+<section id="salary-by-job-role" class="level2">
+<h2 class="anchored" data-anchor-id="salary-by-job-role">Salary by Job Role</h2>
+<div id="9121a462" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'job_role'</span>)[<span class="st">'salary_usd'</span>].mean().sort_values().plot(kind<span class="op">=</span><span class="st">'barh'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Salary by Job Role"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Average Salary (USD)"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Job Role"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="FinalProject_files/figure-html/cell-7-output-1.png" width="749" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>There are clear differences in compensation across roles</li>
+<li>Machine learning and research scientists tend to command higher salaries compared to general analytics positions, reflecting higher demand and specialized skill requirements.</li>
+</ul>
+</section>
+<section id="remote-vs-onsite-salaries" class="level2">
+<h2 class="anchored" data-anchor-id="remote-vs-onsite-salaries">Remote vs Onsite Salaries</h2>
+<div id="13f253a8" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'work_mode'</span>)[<span class="st">'salary_usd'</span>].mean().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Salary by Work Setup"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Work Setup"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Salary (USD)"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="FinalProject_files/figure-html/cell-8-output-1.png" width="618" height="488" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Remote, hybrid, and onsite roles show minimal differences in average compensation</li>
+<li>This suggests that workplace flexibility may not be associated with salary, though further statistical testing is needed to confirm significance.</li>
+</ul>
+</section>
+<section id="salary-by-company-size" class="level2">
+<h2 class="anchored" data-anchor-id="salary-by-company-size">Salary by Company Size</h2>
+<div id="497304e1" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'company_size'</span>)[<span class="st">'salary_usd'</span>].mean().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Salary by Company Size"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Company Size"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Salary (USD)"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="FinalProject_files/figure-html/cell-9-output-1.png" width="618" height="505" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Larger companies tend to offer similar salaries on average</li>
+<li>Indicates that organizational scale may not be a major factor in determining compensation</li>
+</ul>
+</section>
+</section>
+<section id="hypothesis-testing" class="level1">
+<h1>Hypothesis Testing</h1>
+<section id="anova-test-for-salary-differences-by-experience-level" class="level2">
+<h2 class="anchored" data-anchor-id="anova-test-for-salary-differences-by-experience-level">ANOVA Test for Salary Differences by Experience Level</h2>
+<p>H₀: All experience levels have the same mean salary H₁: At least one experience level has a different mean salary</p>
+<div id="4277ba63" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f_oneway</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [group[<span class="st">'salary_usd'</span>].values <span class="cf">for</span> name, group <span class="kw">in</span> df.groupby(<span class="st">'experience_level'</span>)]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> f_oneway(<span class="op">*</span>groups)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>f_stat, p_value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>(np.float64(28488.504051869677), np.float64(0.0))</code></pre>
+</div>
+</div>
+<p>The ANOVA test examining salary differences across experience levels produced an F-statistic of 28,488.50 and a p-value effectively equal to zero (p &lt; 0.001). This result provides extremely strong evidence against the null hypothesis.</p>
+<p>Therefore, we conclude that mean salaries differ significantly across experience levels. This finding confirms that experience is a major determinant of compensation in AI and data-related roles.</p>
+</section>
+<section id="remote-vs-onsite-salary-comparison-two-sample-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="remote-vs-onsite-salary-comparison-two-sample-t-test">Remote vs Onsite Salary Comparison (Two-Sample t-test)</h2>
+<ul>
+<li>H₀: There is no difference in mean salary between remote and onsite jobs<br>
+</li>
+<li>H₁: There is a significant difference in mean salary between remote and onsite jobs</li>
+</ul>
+<div id="81ae2859" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>remote <span class="op">=</span> df[df[<span class="st">'work_mode'</span>] <span class="op">==</span> <span class="st">'Remote'</span>][<span class="st">'salary_usd'</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>onsite <span class="op">=</span> df[df[<span class="st">'work_mode'</span>] <span class="op">==</span> <span class="st">'Onsite'</span>][<span class="st">'salary_usd'</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>t_stat, p_value <span class="op">=</span> ttest_ind(remote, onsite, nan_policy<span class="op">=</span><span class="st">'omit'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>t_stat, p_value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>(np.float64(-0.022858829218200098), np.float64(0.9817629570474155))</code></pre>
+</div>
+</div>
+<p>The two-sample t-test comparing salaries between remote and onsite roles produced a t-statistic of -0.023 and a p-value of 0.982. Since the p-value is substantially greater than 0.05, we fail to reject the null hypothesis.</p>
+<p>This indicates that there is no statistically significant difference in average salaries between remote and onsite positions. In other words, any observed difference in salaries is likely due to random variation rather than a true underlying effect.</p>
+</section>
+</section>
+<section id="statistical-testing" class="level1">
+<h1>Statistical Testing</h1>
+<section id="modeling-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-and-results">Modeling and Results</h2>
+<p>To understand the drivers of salary and build predictive insight, two models were developed: a linear regression model and a random forest model.</p>
+</section>
+<section id="data-preparation-for-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation-for-modeling">Data Preparation for Modeling</h2>
+<p>Before modeling, categorical variables were encoded and the dataset was split into training and testing sets. - The target variable is salary in USD - Features include experience level, job role, country, company size, and work mode</p>
+<div id="c4e7d45b" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'salary_usd'</span>]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[[<span class="st">'experience_level'</span>, <span class="st">'job_role'</span>, <span class="st">'country'</span>, <span class="st">'company_size'</span>, <span class="st">'work_mode'</span>]]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify categorical columns</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>categorical_cols <span class="op">=</span> X.select_dtypes(include<span class="op">=</span>[<span class="st">'object'</span>, <span class="st">'string'</span>]).columns</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocessing: One-hot encoding</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    transformers<span class="op">=</span>[</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'cat'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>), categorical_cols)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    remainder<span class="op">=</span><span class="st">'passthrough'</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-model">Linear Regression Model</h2>
+<div id="e5b6613f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pipeline</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>lr_model <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preprocessor'</span>, preprocessor),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, LinearRegression())</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Train model</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>lr_model.fit(X_train, y_train)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>y_pred_lr <span class="op">=</span> lr_model.predict(X_test)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>rmse_lr <span class="op">=</span> np.sqrt(mean_squared_error(y_test, y_pred_lr))</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>r2_lr <span class="op">=</span> r2_score(y_test, y_pred_lr)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>rmse_lr, r2_lr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>(np.float64(17202.333242434688), 0.8459599223534962)</code></pre>
+</div>
+</div>
+</section>
+<section id="random-forest-model" class="level2">
+<h2 class="anchored" data-anchor-id="random-forest-model">Random Forest Model</h2>
+<div id="2e82a99e" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>rf_model <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'preprocessor'</span>, preprocessor),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'model'</span>, RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">42</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Train model</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>rf_model.fit(X_train, y_train)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>y_pred_rf <span class="op">=</span> rf_model.predict(X_test)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluation</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>rmse_rf <span class="op">=</span> np.sqrt(mean_squared_error(y_test, y_pred_rf))</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>r2_rf <span class="op">=</span> r2_score(y_test, y_pred_rf)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>rmse_rf, r2_rf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>(np.float64(15121.706378670864), 0.880968853191937)</code></pre>
+</div>
+</div>
+</section>
+<section id="model-performance-and-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="model-performance-and-interpretation">Model Performance and Interpretation</h2>
+<p>The linear regression model achieved an R² of 0.846, indicating that approximately 84.6% of the variation in salaries is explained by the model. This suggests a strong relationship between the selected features and salary. The model’s RMSE of 17,202 indicates that predictions deviate from actual salaries by about $17,200 on average.</p>
+<p>The random forest model further improved predictive performance, achieving an R² of 0.881. This means that 88.1% of the variation in salary is explained, reflecting a better overall fit. Additionally, the RMSE decreased to approximately $15,122, indicating more accurate predictions compared to the linear regression model.</p>
+<p>The improvement in performance suggests that salary relationships are not purely linear. The random forest model is able to capture nonlinear interactions between variables ,such as how experience level and job role jointly influence compensation, leading to better accuracy.</p>
+<p>Overall, both models perform well, but the random forest provides superior predictive capability. However, the linear regression model remains valuable for interpretation, as it clearly shows the direction and magnitude of relationships between individual factors and salary.</p>
+</section>
+</section>
+<section id="key-insights" class="level1">
+<h1>Key Insights</h1>
+<p>The analysis of global AI and data job salaries reveals several important patterns regarding compensation across roles, experience levels, and work environments.</p>
+<section id="experience-is-the-strongest-driver-of-salary" class="level2">
+<h2 class="anchored" data-anchor-id="experience-is-the-strongest-driver-of-salary">Experience is the Strongest Driver of Salary</h2>
+<p>Across all analyses, experience level consistently emerged as the most significant factor influencing salary. Both the exploratory analysis and modeling results show that salaries increase substantially with experience, with senior and executive roles commanding significantly higher compensation. This highlights the importance of career progression in maximizing earnings within the AI and data fields.</p>
+</section>
+<section id="work-setup-has-a-limited-impact" class="level2">
+<h2 class="anchored" data-anchor-id="work-setup-has-a-limited-impact">Work Setup Has a Limited Impact</h2>
+<p>Differences between remote, hybrid, and onsite roles were observed, though their impact on salary is smaller compared to experience and job role. While remote work may offer flexibility, it does not appear to be the primary driver of compensation differences.</p>
+</section>
+<section id="company-characteristics-dont-influence-pay" class="level2">
+<h2 class="anchored" data-anchor-id="company-characteristics-dont-influence-pay">Company Characteristics Don’t Influence Pay</h2>
+<p>Larger companies generally did not offer higher salaries. This suggests that organizational scale does not play a major role in compensation structures within the industry.</p>
+</section>
+<section id="nonlinear-relationships-improve-prediction-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="nonlinear-relationships-improve-prediction-accuracy">Nonlinear Relationships Improve Prediction Accuracy</h2>
+<p>The superior performance of the random forest model compared to linear regression indicates that salary is influenced by complex, nonlinear interactions between variables. Factors such as experience, role, and location do not operate independently but combine in ways that significantly affect compensation.</p>
+<hr>
+</section>
+<section id="overall-insight" class="level2">
+<h2 class="anchored" data-anchor-id="overall-insight">Overall Insight</h2>
+<p>Salary in AI and data-related roles is driven by a combination of experience, skills, and job specialization. While no single factor determines compensation, experience level and role specialization consistently emerge as the most influential drivers.</p>
+</section>
+</section>
+<section id="recommendations" class="level1">
+<h1>Recommendations</h1>
+<ul>
+<li>For students and job seekers:
+<ul>
+<li>Prioritize gaining hands-on experience (internships, projects)</li>
+<li>Develop specialized skills in AI and machine learning</li>
+<li>Focus on high-demand technical areas to increase earning potential</li>
+</ul></li>
+<li>Career strategy:
+<ul>
+<li>Prioritize role specialization and growth opportunities over other variables</li>
+<li>Remote work offers flexibility but does not significantly impact salary</li>
+</ul></li>
+<li>For employers:
+<ul>
+<li>Offer competitive salaries for experienced and specialized roles</li>
+<li>Align compensation with market demand for high-skill talent</li>
+<li>Recognize the value of retaining top technical employees</li>
+</ul></li>
+</ul>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<ul>
+<li>The dataset may not fully represent all global AI and data jobs, leading to potential sampling bias<br>
+</li>
+<li>Salary data is reported in USD and may not account for differences in cost of living across countries<br>
+</li>
+<li>Linear regression assumes linear relationships, which may oversimplify complex salary dynamics<br>
+</li>
+<li>Random forest improves accuracy but reduces interpretability of individual variable effects<br>
+</li>
+<li>External factors such as company performance, industry trends, and negotiation are not captured</li>
+</ul>
+</section>
+<section id="future-work" class="level1">
+<h1>Future Work</h1>
+<ul>
+<li>Incorporate additional variables such as education level, certifications, and years of experience for deeper analysis<br>
+</li>
+<li>Adjust salaries for cost of living to better compare compensation across countries<br>
+</li>
+<li>Conduct longitudinal analysis to better understand salary trends over time<br>
+</li>
+<li>Expand the dataset to include more recent data and broader industry coverage</li>
+</ul>
+</section>
+<section id="thank-you-questions" class="level1">
+<h1>Thank you, questions?</h1>
+</section>
+<section id="sources" class="level1">
+<h1>Sources</h1>
+<p>Thalla, Mohan Krishna. “Global AI &amp; Data Jobs Salary Dataset.” Kaggle, 2026, https://www.kaggle.com/datasets/mohankrishnathalla/global-ai-and-data-jobs-salary-dataset. Galarita, Brandon. “Data Science Salary: How Much Can You Make With a Data Science Degree?” Forbes Advisor, 2024, https://www.forbes.com/advisor/education/it-and-tech/data-science-salary/.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
